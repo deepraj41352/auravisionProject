@@ -4,18 +4,19 @@ import DisplayConfigutore from '../component/DisplayConfigutore';
 import { Col, Row, Image } from 'react-bootstrap';
 export default function HomeScreen() {
   return (
-    <div className='bg-dark HomeContainer container-fluid'>
+    <div className='HomeContainer container-fluid'>
       <Row className="d-flex justify-content-center" >
         <Image src="/assets/logo.png" className="homeLogo" alt="auruvisiton" />
       </Row>
       <Row>
         <Col md={2} className="borders mainCol">
           <Row>
-            <Col>
+            <Col className="bg">
               <RoomConfigutore />
-            </Col> </Row>
+            </Col>
+          </Row>
           <Row>
-            <Col>
+            <Col className="bg">
               <DisplayConfigutore />
             </Col>
           </Row>
