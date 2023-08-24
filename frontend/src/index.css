@@ -30,3 +30,15 @@ code {
 .bg {
   background-color: #d1d5dd;
 }
+button.btn-close {
+  font-size: 25px;
+}
+.PopContain .modal-content {
+  border: 3px solid #d1d5db;
+  background: #000;
+  color: #fff;
+}
+.buttonPop {
+  max-width: 200px;
+  margin: auto;
+}
