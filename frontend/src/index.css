@@ -6,7 +6,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+/* * {
+  font-size: 1rem;
+} */
+* {
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -27,6 +33,23 @@ code {
 .mainCol {
   height: calc(100vh - 70px);
 }
-.bg {
+/* .bg {
   background-color: #d1d5dd;
+} */
+.displayModelRow1 span {
+  color: white;
+}
+.textSize {
+  font-size: 0.8rem;
+  color: white;
+}
+
+.btns {
+  font-size: 0.5rem;
+  background-color: #5d5c5c;
+  border: none;
+}
+.Color {
+  background-color: #5d5c5c;
+  border: none;
 }

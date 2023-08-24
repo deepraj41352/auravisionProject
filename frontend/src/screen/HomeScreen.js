@@ -11,12 +11,12 @@ export default function HomeScreen() {
       <Row>
         <Col md={2} className="borders mainCol">
           <Row>
-            <Col className="bg">
+            <Col>
               <RoomConfigutore />
             </Col>
           </Row>
           <Row>
-            <Col className="bg">
+            <Col className=" p-2">
               <DisplayConfigutore />
             </Col>
           </Row>
