@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.homeLogo {
+  width: 170px;
+  padding: 20px;
+}
+.HomeContainer {
+  height: 100vh;
+  color: white;
+}
+.borders {
+  border: 1px solid white;
+}
+
+.mainCol {
+  height: calc(100vh - 70px);
+}
