@@ -9,7 +9,7 @@ export default function HomeScreen() {
         <Image src="/assets/logo.png" className="homeLogo" alt="auruvisiton" />
       </Row>
       <Row>
-        <Col md={2} className="borders mainCol">
+        <Col md={2} className=" mainCol">
           <Row>
             <Col>
               <RoomConfigutore />

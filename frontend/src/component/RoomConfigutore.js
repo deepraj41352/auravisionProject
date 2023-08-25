@@ -23,42 +23,44 @@ export default function RoomConfigutore() {
               <span className="textSize pb-2">ROOM TYPE</span>
               <Button className=" px-4 textSize Color">STANDARD ROOM</Button>
             </Col>
-            <Row className='mb-3'>
-              <Col md={6}>
-                <Row>
-                  <span className="textSize pb-2">width (w)</span>
-                </Row>
-                <Row>
-                  <Col md={3} className="d-flex">
-                    <Button className="btns">
-                      <i class="fa fa-minus" aria-hidden="true"></i>
-                    </Button>
-                    <span className="textSize bg-light text-dark text-lights px-2">2</span>
-                    <Button className="btns" >
-                      <i class="fa fa-plus" aria-hidden="true"></i>
-                    </Button>
-                  </Col>
-                </Row>
-              </Col>
-              <Col md={6}>
-                <Row>
-                  <span className="textSize pb-2">Height (H)</span>
-                </Row>
-                <Row>
-                  <Col className="d-flex">
-                    <Button className="btns">
-                      <i class="fa fa-minus" aria-hidden="true"></i>
-                    </Button>
-                    <span className="textSize bg-light text-dark text-lights px-2">2</span>
-                    <Button
-                      className="btns"
-                    >
-                      <i class="fa fa-plus" aria-hidden="true"></i>
-                    </Button>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
+            <Col md={12}>
+              <Row className='mb-3'>
+                <Col md={6}>
+                  <Row>
+                    <span className="textSize pb-2">width (w)</span>
+                  </Row>
+                  <Row>
+                    <Col md={3} className="d-flex">
+                      <Button className="btns btnLeft">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                      </Button>
+                      <span className="textSize bg-light text-dark text-lights px-2">2</span>
+                      <Button className="btns btnRight" >
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                      </Button>
+                    </Col>
+                  </Row>
+                </Col>
+                <Col md={6}>
+                  <Row>
+                    <span className="textSize pb-2">Height (H)</span>
+                  </Row>
+                  <Row>
+                    <Col className="d-flex">
+                      <Button className="btns btnLeft">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                      </Button>
+                      <span className="textSize bg-light text-dark text-lights px-2">2</span>
+                      <Button
+                        className="btns btnRight"
+                      >
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                      </Button>
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+            </Col>
           </Row>
         </Col>
       </Row>
