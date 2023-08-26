@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Row, Col, Card } from 'react-bootstrap';
+import SelectConfigration from './SelectConfigration';
 
 export default function DisplayConfigutore() {
+  const [configModelVisible, setConfigModelVisible] = useState(false);
+  const handleModelConfigration = () => setConfigModelVisible(true)
   return (
     <>
       <Row >
@@ -17,7 +20,8 @@ export default function DisplayConfigutore() {
               <span ><a href="#" className="text-success bold">VIEW DETAILS </a></span>
             </Col>
             <Col md={12} className="d-flex justify-content-center mb-3">
-              <Button className=" px-5 textSize Color">SELECT MODEL</Button>
+              <Button className=" px-5 textSize Color" onClick={handleModelConfigration}>SELECT MODEL</Button>
+              <SelectConfigration showConfig={configModelVisible} setShowConfig={setConfigModelVisible} />
             </Col>
             <Col md={12}>
               <Row md={12}>

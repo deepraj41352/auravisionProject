@@ -1,10 +1,32 @@
-import React from 'react';
-import { Button, Row, Col, Card } from 'react-bootstrap';
+import React, { useContext, useEffect, useState } from 'react';
+import { Button, Row, Col } from 'react-bootstrap';
+import SelectYourEvt from './SelectYourEvt';
+import SelectRoomThem from './SelectRoomThem';
+import { Store } from '../Store';
+
 
 export default function RoomConfigutore() {
+
+  const { state } = useContext(Store);
+  const { envTypes, roomType } = state;
+  console.log("roomType", roomType)
+  const [envTypeModalVisible, setEnvTypeModalVisible] = useState(false);
+  const [triggerRerender, setTriggerRerender] = useState(false);
+  const [roomThemModelVisible, setRoomThemModelVisible] = useState(false);
+
+  const handleEnvType = () => setEnvTypeModalVisible(true);
+
+  const handleRoomThem = () => setRoomThemModelVisible(true);
+
+
+
+  useEffect(() => {
+    setTriggerRerender(!triggerRerender);
+  }, [envTypes, roomType]);
+
+
   return (
     <>
-
       <Row >
         <Col className='my-2'>
           <h6>
@@ -13,16 +35,22 @@ export default function RoomConfigutore() {
         </Col>
         <Col className="bg-dark px-2 mx-2 ">
           <Row>
-            <Col md={12} className="d-flex flex-column justify-content-center mt-3">
+            <Col md={12} className="d-flex flex-column justify-content-center my-3">
               <span className="textSize pb-2">ENVIRONMENT</span>
-              <Button className=" px-5 textSize Color">INDOOR</Button>
+              <Button className=" px-5 textSize Color" onClick={handleEnvType} >{envTypes.envName || "INDOOR"}</Button>
+              <SelectYourEvt show={envTypeModalVisible} setShow={setEnvTypeModalVisible} />
             </Col>
           </Row>
+
           <Row>
-            <Col md={12} className="d-flex flex-column justify-content-center my-3">
-              <span className="textSize pb-2">ROOM TYPE</span>
-              <Button className=" px-4 textSize Color">STANDARD ROOM</Button>
-            </Col>
+            {envTypes.envName === "OUTDOOR" ? ("") : (
+              <Col md={12} className="d-flex flex-column justify-content-center mb-3">
+                <span className="textSize pb-2">ROOM TYPE</span>
+                <Button className=" px-4 textSize Color" onClick={handleRoomThem}>{roomType.roomTheme || "STANDARD ROOM"}</Button>
+                <SelectRoomThem showroom={roomThemModelVisible} setShowroom={setRoomThemModelVisible} />
+              </Col>
+            )}
+
             <Col md={12}>
               <Row className='mb-3'>
                 <Col md={6}>
@@ -64,6 +92,5 @@ export default function RoomConfigutore() {
           </Row>
         </Col>
       </Row>
-
     </>);
 }
