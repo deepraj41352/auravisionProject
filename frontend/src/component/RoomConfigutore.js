@@ -4,12 +4,10 @@ import SelectYourEvt from './SelectYourEvt';
 import SelectRoomThem from './SelectRoomThem';
 import { Store } from '../Store';
 
-
 export default function RoomConfigutore() {
-
   const { state } = useContext(Store);
   const { envTypes, roomType } = state;
-  console.log("roomType", roomType)
+  console.log('roomType', roomType);
   const [envTypeModalVisible, setEnvTypeModalVisible] = useState(false);
   const [triggerRerender, setTriggerRerender] = useState(false);
   const [roomThemModelVisible, setRoomThemModelVisible] = useState(false);
@@ -18,41 +16,57 @@ export default function RoomConfigutore() {
 
   const handleRoomThem = () => setRoomThemModelVisible(true);
 
-
-
   useEffect(() => {
     setTriggerRerender(!triggerRerender);
   }, [envTypes, roomType]);
 
-
   return (
     <>
-      <Row >
-        <Col className='my-2'>
-          <h6>
-            ROOM CONFIGURATOR
-          </h6>
+      <Row>
+        <Col className="p-3">
+          <h6>ROOM CONFIGURATOR</h6>
         </Col>
-        <Col className="bg-dark px-2 mx-2 ">
+        <Col className="bg-dark px-2 mr-2 ">
           <Row>
-            <Col md={12} className="d-flex flex-column justify-content-center my-3">
+            <Col
+              md={12}
+              className="d-flex flex-column justify-content-center my-3"
+            >
               <span className="textSize pb-2">ENVIRONMENT</span>
-              <Button className=" px-5 textSize Color" onClick={handleEnvType} >{envTypes.envName || "INDOOR"}</Button>
-              <SelectYourEvt show={envTypeModalVisible} setShow={setEnvTypeModalVisible} />
+              <Button className=" px-5 textSize Color" onClick={handleEnvType}>
+                {envTypes.envName || 'INDOOR'}
+              </Button>
+              <SelectYourEvt
+                show={envTypeModalVisible}
+                setShow={setEnvTypeModalVisible}
+              />
             </Col>
           </Row>
 
           <Row>
-            {envTypes.envName === "OUTDOOR" ? ("") : (
-              <Col md={12} className="d-flex flex-column justify-content-center mb-3">
+            {envTypes.envName === 'OUTDOOR' ? (
+              ''
+            ) : (
+              <Col
+                md={12}
+                className="d-flex flex-column justify-content-center mb-3"
+              >
                 <span className="textSize pb-2">ROOM TYPE</span>
-                <Button className=" px-4 textSize Color" onClick={handleRoomThem}>{roomType.roomTheme || "STANDARD ROOM"}</Button>
-                <SelectRoomThem showroom={roomThemModelVisible} setShowroom={setRoomThemModelVisible} />
+                <Button
+                  className=" px-4 textSize Color"
+                  onClick={handleRoomThem}
+                >
+                  {roomType.roomTheme || 'STANDARD ROOM'}
+                </Button>
+                <SelectRoomThem
+                  showroom={roomThemModelVisible}
+                  setShowroom={setRoomThemModelVisible}
+                />
               </Col>
             )}
 
             <Col md={12}>
-              <Row className='mb-3'>
+              <Row className="mb-3">
                 <Col md={6}>
                   <Row>
                     <span className="textSize pb-2">width (w)</span>
@@ -62,8 +76,10 @@ export default function RoomConfigutore() {
                       <Button className="btns btnLeft">
                         <i class="fa fa-minus" aria-hidden="true"></i>
                       </Button>
-                      <span className="textSize bg-light text-dark text-lights px-2">2</span>
-                      <Button className="btns btnRight" >
+                      <span className="textSize bg-light text-dark text-lights px-2">
+                        2
+                      </span>
+                      <Button className="btns btnRight">
                         <i class="fa fa-plus" aria-hidden="true"></i>
                       </Button>
                     </Col>
@@ -78,10 +94,10 @@ export default function RoomConfigutore() {
                       <Button className="btns btnLeft">
                         <i class="fa fa-minus" aria-hidden="true"></i>
                       </Button>
-                      <span className="textSize bg-light text-dark text-lights px-2">2</span>
-                      <Button
-                        className="btns btnRight"
-                      >
+                      <span className="textSize bg-light text-dark text-lights px-2">
+                        2
+                      </span>
+                      <Button className="btns btnRight">
                         <i class="fa fa-plus" aria-hidden="true"></i>
                       </Button>
                     </Col>
@@ -92,5 +108,6 @@ export default function RoomConfigutore() {
           </Row>
         </Col>
       </Row>
-    </>);
+    </>
+  );
 }
