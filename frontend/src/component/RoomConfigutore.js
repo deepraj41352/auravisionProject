@@ -7,7 +7,6 @@ import { Store } from '../Store';
 export default function RoomConfigutore() {
   const { state } = useContext(Store);
   const { envTypes, roomType } = state;
-  console.log('roomType', roomType);
   const [envTypeModalVisible, setEnvTypeModalVisible] = useState(false);
   const [triggerRerender, setTriggerRerender] = useState(false);
   const [roomThemModelVisible, setRoomThemModelVisible] = useState(false);

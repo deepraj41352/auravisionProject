@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Col, Row } from 'react-bootstrap';
+import { Store } from '../Store';
 
 export default function SceenConfiguration() {
+  const { state } = useContext(Store);
+  const { countColumn, countRow, data } = state;
+  console.log('data', data);
   return (
     <>
       <div className="screenConf">
@@ -24,10 +28,10 @@ export default function SceenConfiguration() {
                 </Row>
                 <Row className="py-1">
                   <Col>
-                    <span className="righttextSize  ">2</span>
+                    <span className="righttextSize  ">{countColumn}</span>
                   </Col>
                   <Col>
-                    <span className="righttextSize  ">2</span>
+                    <span className="righttextSize  ">{countRow}</span>
                   </Col>
                 </Row>
                 <Row className="color-2 py-1">
@@ -35,7 +39,9 @@ export default function SceenConfiguration() {
                     <span className="righttextSize  ">TOTAL PANELS</span>
                   </Col>
                   <Col>
-                    <span className="righttextSize  ">4</span>
+                    <span className="righttextSize  ">
+                      {countColumn * countRow}
+                    </span>
                   </Col>
                 </Row>
               </Col>
