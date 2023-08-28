@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import React, { useContext, useEffect, useState } from 'react';
 import RoomConfigutore from '../component/RoomConfigutore';
 import DisplayConfigutore from '../component/DisplayConfigutore';
+=======
+import React from 'react';
+import RoomConfigutore from '../components/RoomConfigutore';
+import DisplayConfigutore from '../components/DisplayConfigutore';
+>>>>>>> 5582c8acbdd91141148c5c8a3bca4fb34203c111
 import { Col, Row, Image } from 'react-bootstrap';
 import CenterRoom from '../component/CenterRoom';
 import SceenConfiguration from '../component/SceenConfiguration';

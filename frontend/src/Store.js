@@ -3,6 +3,7 @@ import { createContext, useReducer } from 'react';
 export const Store = createContext();
 
 const initialstate = {
+<<<<<<< HEAD
   envTypes: {},
   roomType: {},
   imgUpload: {},
@@ -27,6 +28,27 @@ const reducer = (state, action) => {
       return state;
   }
 };
+=======
+    envTypes: {},
+    roomType: {},
+    config: {}
+
+}
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case "ENVType":
+            return { ...state, envTypes: action.payload };
+        case "ROOMTYPE":
+            return { ...state, roomType: action.payload };
+        case "FATCH_CONFIGDATA":
+            return { ...state, config: action.payload };
+        default:
+            return state;
+    }
+
+}
+>>>>>>> 5582c8acbdd91141148c5c8a3bca4fb34203c111
 export default function StoreProvider(props) {
   const [state, dispatch] = useReducer(reducer, initialstate);
   const value = { state, dispatch };

@@ -1,10 +1,17 @@
 import { Row, Table, Modal } from 'react-bootstrap';
 import data from '../DummyData';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { Store } from '../Store';
 
 
 export default function SelectConfigration({ showConfig, setShowConfig }) {
     const [configData, setConfigData] = useState(data.configurationData || []);
+    const { state, dispatch: ctxDispatch } = useContext(Store);
+
+    const handleCongigClick = (config) => {
+        ctxDispatch({ type: "FATCH_CONFIGDATA", payload: config });
+        setShowConfig(false);
+    }
 
     const handleClose = () => setShowConfig(false);
     return (
@@ -37,8 +44,7 @@ export default function SelectConfigration({ showConfig, setShowConfig }) {
                                 </thead>
                                 <tbody>
                                     {configData.map((config) => (
-
-                                        <tr key={config.id} className="textSize ">
+                                        <tr key={config.id} className="textSize confitTable" onClick={() => handleCongigClick(config)}>
                                             <td>{config.category}</td>
                                             <td>{config.model}</td>
                                             <td>{config.description}</td>

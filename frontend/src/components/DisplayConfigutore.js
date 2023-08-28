@@ -1,3 +1,4 @@
+<<<<<<< HEAD:frontend/src/component/DisplayConfigutore.js
 import React, { useContext, useEffect, useState } from 'react';
 import { Button, Row, Col, Card } from 'react-bootstrap';
 import SelectConfigration from './SelectConfigration';
@@ -41,6 +42,22 @@ export default function DisplayConfigutore() {
     });
   }, [countColumn]);
 
+=======
+import React, { useContext, useState } from 'react';
+import { Button, Row, Col, Card } from 'react-bootstrap';
+import SelectConfigration from './SelectConfigration';
+import { Store } from '../Store';
+import ViewSingleConfig from './ViewSingleConfig';
+
+export default function DisplayConfigutore() {
+  const { state } = useContext(Store);
+  const { config } = state;
+  console.log("config", config)
+  const [configModelVisible, setConfigModelVisible] = useState(false);
+  const [singleConfigModel, setSingleConfigModel] = useState(false);
+  const handleModelConfigration = () => setConfigModelVisible(true);
+  const handleViewSingleConfig = () => setSingleConfigModel(true);
+>>>>>>> 5582c8acbdd91141148c5c8a3bca4fb34203c111:frontend/src/components/DisplayConfigutore.js
   return (
     <>
       <Row>
@@ -49,6 +66,7 @@ export default function DisplayConfigutore() {
         </Col>
         <Col>
           <Col className="bg-dark px-2">
+<<<<<<< HEAD:frontend/src/component/DisplayConfigutore.js
             <Col
               md={12}
               className="d-flex textSize displayModelRow1 justify-content-around my-2 py-3 "
@@ -71,6 +89,18 @@ export default function DisplayConfigutore() {
                 showConfig={configModelVisible}
                 setShowConfig={setConfigModelVisible}
               />
+=======
+            <Col md={12} className="d-flex textSize displayModelRow1 justify-content-around my-2 py-3 ">
+              <span >DISPLAY MODEL</span>
+
+              <span href="#" className="text-success bold" onClick={handleViewSingleConfig}>VIEW DETAILS </span>
+              <ViewSingleConfig show={singleConfigModel} setShow={setSingleConfigModel} />
+
+            </Col>
+            <Col md={12} className="d-flex justify-content-center mb-3">
+              <Button className=" px-5 textSize Color" onClick={handleModelConfigration}>{config.model || "SELECT MODEL"}</Button>
+              <SelectConfigration showConfig={configModelVisible} setShowConfig={setConfigModelVisible} />
+>>>>>>> 5582c8acbdd91141148c5c8a3bca4fb34203c111:frontend/src/components/DisplayConfigutore.js
             </Col>
             <Col md={12}>
               <Row md={12}>
