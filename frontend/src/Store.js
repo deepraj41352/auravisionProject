@@ -4,7 +4,8 @@ export const Store = createContext();
 
 const initialstate = {
     envTypes: {},
-    roomType: {}
+    roomType: {},
+    config: {}
 
 }
 
@@ -14,6 +15,8 @@ const reducer = (state, action) => {
             return { ...state, envTypes: action.payload };
         case "ROOMTYPE":
             return { ...state, roomType: action.payload };
+        case "FATCH_CONFIGDATA":
+            return { ...state, config: action.payload };
         default:
             return state;
     }

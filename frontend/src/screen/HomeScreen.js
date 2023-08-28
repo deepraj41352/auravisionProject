@@ -1,6 +1,6 @@
 import React from 'react';
-import RoomConfigutore from '../component/RoomConfigutore';
-import DisplayConfigutore from '../component/DisplayConfigutore';
+import RoomConfigutore from '../components/RoomConfigutore';
+import DisplayConfigutore from '../components/DisplayConfigutore';
 import { Col, Row, Image } from 'react-bootstrap';
 export default function HomeScreen() {
   return (
