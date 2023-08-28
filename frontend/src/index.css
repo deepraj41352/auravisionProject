@@ -5,9 +5,182 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #000;
+  overflow-y: scroll;
 }
-
+/* * {
+  font-size: 1rem;
+} */
+* {
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+.screenConf {
+  overflow-x: scroll;
+}
+.homeLogo {
+  width: 170px;
+  padding: 20px;
+}
+.HomeContainer {
+  height: 100vh;
+  color: white;
+}
+.borders {
+  border: 1px solid white;
+}
+
+.mainCol {
+  height: calc(100vh - 70px);
+}
+/* .bg {
+  background-color: #d1d5dd;
+} */
+.displayModelRow1 span {
+  color: white;
+}
+.textSize {
+  font-size: 0.8rem;
+  color: white;
+}
+.hidden {
+  display: none;
+}
+.btns {
+  font-size: 0.5rem;
+  background-color: #5d5c5c;
+  border-radius: 0%;
+  border: none;
+}
+.Color {
+  background-color: #5d5c5c;
+  border: none;
+}
+.bigBtn {
+  border-radius: 0%;
+  border: none;
+  padding: 1px 8px;
+  font-size: 1rem;
+}
+.btnRight {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.btnLeft {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.btns:hover,
+.bigBtn:hover {
+  transition: all smooth;
+  color: #5d5c5c !important;
+}
+button.btn-close {
+  font-size: 25px;
+}
+.PopContain .modal-content {
+  border: 3px solid #d1d5db;
+  background: #000;
+  color: #fff;
+  width: 100%;
+  min-width: 125%;
+}
+.buttonPop {
+  max-width: 200px;
+  margin: auto;
+}
+.roomImage {
+  width: 100%;
+  min-width: 183px;
+  cursor: pointer;
+}
+
+#tableContainer {
+  max-height: 400px;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 600px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: #000;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(0, 0, 0);
+  border-radius: 25px;
+  border: 1px solid white;
+}
+
+/* centerRoom css */
+
+.ceilingImg {
+  width: 100%;
+}
+.leftWall {
+  width: 11%;
+  background-color: #cecece;
+  padding: 0;
+  margin-left: 12px;
+}
+.wall-gradient {
+  background: #d0d0d0;
+  background: linear-gradient(180deg, #d0d0d0 0, #fff 25%, #fff 99%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d0d0d0",endColorstr="#ffffff",GradientType=0);
+  height: 315.109px;
+  position: relative;
+}
+
+.rightWall {
+  width: 11%;
+  background-color: #cecece;
+  padding: 0;
+  margin-right: 12px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Screen Configutore css */
+
+.color-2 {
+  background-color: #202020;
+}
+.buttons {
+  background: #000;
+  border-radius: 0;
+  font-size: 11px;
+}
+.buttonImg {
+  background-image: url(https://cdn.samcodes.io/media/artboard-65.png);
+  padding: 2px;
+  background-position: 50%;
+  background-size: cover;
+  letter-spacing: -0.5px;
+}
+.righttextSize {
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  line-height: 0;
+  padding-left: 8px;
 }
