@@ -2,8 +2,8 @@ import React from 'react';
 import RoomConfigutore from '../components/RoomConfigutore';
 import DisplayConfigutore from '../components/DisplayConfigutore';
 import { Col, Row, Image } from 'react-bootstrap';
-import CenterRoom from '../component/CenterRoom';
-import SceenConfiguration from '../component/SceenConfiguration';
+import CenterRoom from '../components/CenterRoom';
+import SceenConfiguration from '../components/SceenConfiguration';
 export default function HomeScreen() {
   return (
     <div className="HomeContainer container-fluid">

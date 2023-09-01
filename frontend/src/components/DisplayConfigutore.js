@@ -7,7 +7,6 @@ import ViewSingleConfig from './ViewSingleConfig';
 export default function DisplayConfigutore() {
   const { state } = useContext(Store);
   const { config } = state;
-  console.log("config", config)
   const [configModelVisible, setConfigModelVisible] = useState(false);
   const [singleConfigModel, setSingleConfigModel] = useState(false);
   const handleModelConfigration = () => setConfigModelVisible(true);
