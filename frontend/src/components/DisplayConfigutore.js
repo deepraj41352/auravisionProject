@@ -1,20 +1,37 @@
-<<<<<<< HEAD:frontend/src/component/DisplayConfigutore.js
 import React, { useContext, useEffect, useState } from 'react';
-import { Button, Row, Col, Card } from 'react-bootstrap';
+import { Button, Row, Col } from 'react-bootstrap';
 import SelectConfigration from './SelectConfigration';
 import { Store } from '../Store';
+import ViewSingleConfig from './ViewSingleConfig';
 
 export default function DisplayConfigutore() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { config, countRows, countColumns, imageShow } = state;
   const [configModelVisible, setConfigModelVisible] = useState(false);
-  const [countColumn, setCountColumn] = useState(2);
-  const [countRow, setCountRow] = useState(2);
-
-  const handleModelConfigration = () => setConfigModelVisible(true);
+  const [singleConfigModel, setSingleConfigModel] = useState(false);
+  const [countColumn, setCountColumn] = useState(countColumns);
+  const [countRow, setCountRow] = useState(countRows);
+  function handleModelConfigration() {
+    setConfigModelVisible(true);
+  }
+  const handleViewSingleConfig = () => setSingleConfigModel(true);
   function handleChange(e) {
     ctxDispatch({
       type: 'IMGUPLOAD',
       payload: URL.createObjectURL(e.target.files[0]),
+    });
+    ctxDispatch({
+      type: 'SET_ADDIMAGE',
+    });
+    ctxDispatch({ type: 'ROOMTHEM', payload: null });
+  }
+  function handleRemoveImg() {
+    ctxDispatch({
+      type: 'IMGUPLOAD',
+      payload: null,
+    });
+    ctxDispatch({
+      type: 'SET_REMOVEIMAGE',
     });
   }
 
@@ -33,74 +50,51 @@ export default function DisplayConfigutore() {
       type: 'COUNTROW',
       payload: countRow,
     });
-  }, [countRow]);
-
-  useEffect(() => {
     ctxDispatch({
       type: 'COUNTCOLUMN',
       payload: countColumn,
     });
-  }, [countColumn]);
+  }, [ctxDispatch, countRow, countColumn]);
 
-=======
-import React, { useContext, useState } from 'react';
-import { Button, Row, Col, Card } from 'react-bootstrap';
-import SelectConfigration from './SelectConfigration';
-import { Store } from '../Store';
-import ViewSingleConfig from './ViewSingleConfig';
+  // useEffect(() => {}, [ctxDispatch, countColumn]);
 
-export default function DisplayConfigutore() {
-  const { state } = useContext(Store);
-  const { config } = state;
-  console.log("config", config)
-  const [configModelVisible, setConfigModelVisible] = useState(false);
-  const [singleConfigModel, setSingleConfigModel] = useState(false);
-  const handleModelConfigration = () => setConfigModelVisible(true);
-  const handleViewSingleConfig = () => setSingleConfigModel(true);
->>>>>>> 5582c8acbdd91141148c5c8a3bca4fb34203c111:frontend/src/components/DisplayConfigutore.js
   return (
     <>
       <Row>
-        <Col className="my-2">
+        <Col className="py-3 px-0 text-center">
           <h6>DISPLAY CONFIGURATION</h6>
         </Col>
-        <Col>
-          <Col className="bg-dark px-2">
-<<<<<<< HEAD:frontend/src/component/DisplayConfigutore.js
+        <Col className="bgColor mr-2 p-0">
+          <Row className="w-100 m-0">
             <Col
               md={12}
-              className="d-flex textSize displayModelRow1 justify-content-around my-2 py-3 "
+              className="d-flex textSize displayModelRow1 justify-content-around my-2 p-0"
             >
               <span>DISPLAY MODEL</span>
-              <span>
-                <a href="#" className="text-success bold">
-                  VIEW DETAILS{' '}
-                </a>
+
+              <span
+                href="#"
+                className="text-success viweDetails"
+                onClick={handleViewSingleConfig}
+              >
+                VIEW DETAILS{' '}
               </span>
+              <ViewSingleConfig
+                show={singleConfigModel}
+                setShow={setSingleConfigModel}
+              />
             </Col>
             <Col md={12} className="d-flex justify-content-center mb-3">
               <Button
-                className=" px-5 textSize Color"
+                className="w-100 textSize Color"
                 onClick={handleModelConfigration}
               >
-                SELECT MODEL
+                {config.model || 'SELECT MODEL'}
               </Button>
               <SelectConfigration
                 showConfig={configModelVisible}
                 setShowConfig={setConfigModelVisible}
               />
-=======
-            <Col md={12} className="d-flex textSize displayModelRow1 justify-content-around my-2 py-3 ">
-              <span >DISPLAY MODEL</span>
-
-              <span href="#" className="text-success bold" onClick={handleViewSingleConfig}>VIEW DETAILS </span>
-              <ViewSingleConfig show={singleConfigModel} setShow={setSingleConfigModel} />
-
-            </Col>
-            <Col md={12} className="d-flex justify-content-center mb-3">
-              <Button className=" px-5 textSize Color" onClick={handleModelConfigration}>{config.model || "SELECT MODEL"}</Button>
-              <SelectConfigration showConfig={configModelVisible} setShowConfig={setConfigModelVisible} />
->>>>>>> 5582c8acbdd91141148c5c8a3bca4fb34203c111:frontend/src/components/DisplayConfigutore.js
             </Col>
             <Col md={12}>
               <Row md={12}>
@@ -151,29 +145,64 @@ export default function DisplayConfigutore() {
                 </Col>
               </Row>
             </Col>
+
             <Col md={12} className="d-flex justify-content-center my-3 ">
-              <label className="px-5 my-3 textSize Color">
-                Change media
-                <input type="file" onChange={handleChange} className="hidden" />
-              </label>
+              {imageShow ? (
+                <Button
+                  className="w-100 textSize Color"
+                  onClick={handleRemoveImg}
+                >
+                  Remove media
+                </Button>
+              ) : (
+                <label className="w-100 text-center textSize Color text-uppercase ChangeMedia">
+                  Change media
+                  <input
+                    type="file"
+                    onChange={handleChange}
+                    className="hidden"
+                  />
+                </label>
+              )}
             </Col>
-            <Col md={12} className="d-flex justify-conten-center">
-              <Row>
-                <p className="textSize">Height From Ground (m)</p>
-                <Col className="d-flex  mb-3">
-                  <Button className="px-4 Color bigBtn btnLeft">
-                    <i class="fa fa-minus" aria-hidden="true"></i>
-                  </Button>
-                  <span className=" bg-light text-center text-dark text-lights px-4">
-                    2
-                  </span>
-                  <Button className="px-4 Color bigBtn btnRight">
-                    <i class="fa fa-plus" aria-hidden="true"></i>
-                  </Button>
-                </Col>
-              </Row>
+            {imageShow ? (
+              <Col md={12} className="w-100 mb-3">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label
+                    class="form-check-label  text-lowercase"
+                    for="flexCheckDefault"
+                  >
+                    keep ratio
+                  </label>
+                </div>
+              </Col>
+            ) : (
+              ''
+            )}
+
+            <Col md={12} className="d-flex justify-content-center mb-3 ">
+              <p className="textSize">Height From Ground (m)</p>
             </Col>
-          </Col>
+            <Row>
+              <Col className="d-flex  mb-3">
+                <Button className="px-4 Color bigBtn btnLeft">
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                </Button>
+                <span className=" bg-light text-center text-dark text-lights px-4">
+                  2
+                </span>
+                <Button className="px-4 Color bigBtn btnRight">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </Button>
+              </Col>
+            </Row>
+          </Row>
         </Col>
       </Row>
     </>
