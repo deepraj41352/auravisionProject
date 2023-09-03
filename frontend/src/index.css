@@ -18,6 +18,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
 h6 {
   margin: 0;
 }
@@ -39,6 +44,9 @@ p {
 .borders {
   border: 1px solid white;
 }
+.bgColor {
+  background-color: #151515;
+}
 
 .mainCol {
   height: calc(100vh - 70px);
@@ -53,16 +61,22 @@ p {
   font-size: 0.8rem;
   color: white;
 }
-
+.hidden {
+  display: none;
+}
+.viweDetails {
+  text-decoration: underline;
+}
 .btns {
   font-size: 0.5rem;
-  background-color: #5d5c5c;
+  background-color: #333;
   border-radius: 0%;
   border: none;
 }
 .Color {
-  background-color: #5d5c5c;
+  background-color: #333;
   border: none;
+  padding: 5px 0;
 }
 .bigBtn {
   border-radius: 0%;
@@ -142,7 +156,6 @@ button.btn-close {
   background: linear-gradient(180deg, #d0d0d0 0, #fff 25%, #fff 99%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d0d0d0",endColorstr="#ffffff",GradientType=0);
   height: 315.109px;
-  position: relative;
 }
 
 .rightWall {
@@ -156,6 +169,94 @@ button.btn-close {
   cursor: pointer;
 }
 
+/* Center absolute*/
+.w-full {
+  width: 100%;
+}
+.h-full {
+  height: 100%;
+}
+@media (min-width: 768px) {
+  .md\:leading-\[0\.1em\] {
+    line-height: 0.1em;
+  }
+}
+@media (min-width: 768px) {
+  .md\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+.text-3xs {
+  font-size: 14px;
+  width: max-content;
+  display: inline-block;
+  height: 18px;
+  line-height: 18px;
+}
+.border-b {
+  border-bottom-width: 1px;
+}
+.w-full {
+  width: 100%;
+}
+
+.topCenter {
+  width: 0%;
+  top: 183.74px;
+  left: 314.438px;
+}
+.rightCenter {
+  width: 0px;
+  top: 198.74px;
+  left: 329.438px;
+  rotate: 90deg;
+  transform-origin: left center;
+}
+.bottomCenter {
+  width: 105.036px;
+  top: 201.073px;
+  left: 51.4%;
+  rotate: 90deg;
+  transform-origin: left center;
+}
+.leftCenter {
+  width: auto;
+  bottom: 105.036px;
+  left: -5%;
+  rotate: 90deg;
+}
+.z-10 {
+  z-index: 10;
+}
+.bg-center {
+  background-position: 50%;
+}
+.bg-cover {
+  background-size: cover;
+}
+.leftTop {
+  top: 0;
+  left: 0;
+}
+.rightTop {
+  top: 0;
+  right: 0;
+}
+.bgImg {
+  background-image: url(https://cdn.samcodes.io/media/artboard-65.png);
+}
+
+/* Image Center*/
+.ImgCenter {
+  background-repeat: no-repeat;
+  background-color: white;
+  background-size: cover;
+  height: 45%;
+  width: 60%;
+  margin-bottom: 105.036px;
+}
+
 /* Screen Configutore css */
 
 .color-2 {
@@ -164,8 +265,10 @@ button.btn-close {
 .buttons {
   background: #000;
   border-radius: 0;
-  font-size: 11px;
+  font-size: 10px;
+  padding: 7px 0;
 }
+
 .buttonImg {
   background-image: url(https://cdn.samcodes.io/media/artboard-65.png);
   padding: 2px;
@@ -174,8 +277,50 @@ button.btn-close {
   letter-spacing: -0.5px;
 }
 .righttextSize {
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 0.5px;
   line-height: 0;
   padding-left: 8px;
+}
+.ChangeMedia {
+  border-radius: 0.375rem;
+  padding: 5px 0;
+}
+.btn:hover {
+  color: #fff !important;
+  background-color: #585858 !important;
+}
+label:hover {
+  color: #fff;
+  background-color: #585858 !important;
+}
+.buttons:hover {
+  color: #fff !important;
+  background-color: black !important;
+}
+.flexCenter {
+  flex: 3;
+}
+.downloadbuttons {
+  background: #000;
+  border-radius: 0;
+  font-size: 16px;
+  padding: 7px 0;
+}
+.downloadbuttons:hover {
+  color: #fff !important;
+  background-color: black !important;
+}
+
+.inputFild {
+  background-color: #333;
+  border: none;
+  color: #fff;
+}
+.inputFild:focus {
+  background-color: #333;
+  border: none;
+  color: #fff;
+  outline: none;
+  box-shadow: none;
 }

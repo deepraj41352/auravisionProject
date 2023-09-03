@@ -7,7 +7,6 @@ import { Store } from '../Store';
 export default function RoomConfigutore() {
   const { state } = useContext(Store);
   const { envTypes, roomType } = state;
-  console.log('roomType', roomType);
   const [envTypeModalVisible, setEnvTypeModalVisible] = useState(false);
   const [triggerRerender, setTriggerRerender] = useState(false);
   const [roomThemModelVisible, setRoomThemModelVisible] = useState(false);
@@ -18,22 +17,24 @@ export default function RoomConfigutore() {
 
   useEffect(() => {
     setTriggerRerender(!triggerRerender);
-  }, [envTypes, roomType]);
+  }, [envTypes, roomType, triggerRerender]);
 
   return (
     <>
       <Row>
-        <Col className="p-3">
+        <Col className="py-3 px-0 text-center">
           <h6>ROOM CONFIGURATOR</h6>
         </Col>
-        <Col className="bg-dark px-2 mr-2 ">
-          <Row>
+      </Row>
+      <Row>
+        <Col className="bgColor mr-2 ">
+          <Row className="w-100 m-0">
             <Col
               md={12}
-              className="d-flex flex-column justify-content-center my-3"
+              className="d-flex flex-column justify-content-center my-3 p-0"
             >
               <span className="textSize pb-2">ENVIRONMENT</span>
-              <Button className=" px-5 textSize Color" onClick={handleEnvType}>
+              <Button className="w-100 textSize Color" onClick={handleEnvType}>
                 {envTypes.envName || 'INDOOR'}
               </Button>
               <SelectYourEvt
@@ -42,18 +43,17 @@ export default function RoomConfigutore() {
               />
             </Col>
           </Row>
-
           <Row>
             {envTypes.envName === 'OUTDOOR' ? (
               ''
             ) : (
               <Col
                 md={12}
-                className="d-flex flex-column justify-content-center mb-3"
+                className="d-flex flex-column justify-content-center  mb-3"
               >
                 <span className="textSize pb-2">ROOM TYPE</span>
                 <Button
-                  className=" px-4 textSize Color"
+                  className="w-100 textSize Color text-uppercase"
                   onClick={handleRoomThem}
                 >
                   {roomType.roomTheme || 'STANDARD ROOM'}
@@ -61,15 +61,17 @@ export default function RoomConfigutore() {
                 <SelectRoomThem
                   showroom={roomThemModelVisible}
                   setShowroom={setRoomThemModelVisible}
+                  roomType={roomType}
                 />
               </Col>
             )}
-
             <Col md={12}>
               <Row className="mb-3">
                 <Col md={6}>
                   <Row>
-                    <span className="textSize pb-2">width (w)</span>
+                    <span className="textSize pb-2 text-uppercase">
+                      width (w)
+                    </span>
                   </Row>
                   <Row>
                     <Col md={3} className="d-flex">
