@@ -252,8 +252,8 @@ button.btn-close {
   background-repeat: no-repeat;
   background-color: white;
   background-size: cover;
-  height: 45%;
-  width: 60%;
+  height: 25%;
+  width: 25%;
   margin-bottom: 105.036px;
 }
 
@@ -323,4 +323,18 @@ label:hover {
   color: #fff;
   outline: none;
   box-shadow: none;
+}
+/*  */
+.centerThemeImg {
+  transform-origin: center center;
+  bottom: -10%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 482.154px;
+  z-index: 20;
+}
+/* 
+ */
+.displayConModel {
+  cursor: pointer;
 }

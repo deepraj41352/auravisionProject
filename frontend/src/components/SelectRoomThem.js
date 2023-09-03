@@ -11,8 +11,8 @@ export default function SelectYourEvt({ showroom, setShowroom, roomType }) {
   const handleRoomTypeClick = (room) => {
     ctxDispatch({ type: 'ROOMTYPE', payload: room });
     ctxDispatch({ type: 'IMGUPLOAD', payload: null });
-    ctxDispatch({ type: 'ROOMTHEM', payload: roomType.image });
-    console.log(roomType.image);
+    ctxDispatch({ type: 'ROOMTHEM', payload: roomType });
+    // console.log(roomType.themImg,bgImg);
     setShowroom(false);
   };
   const handleClose = () => setShowroom(false);

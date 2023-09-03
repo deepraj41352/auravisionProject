@@ -6,6 +6,8 @@ import { Store } from '../Store';
 export default function SelectConfigration({ showConfig, setShowConfig }) {
   const [configData, setConfigData] = useState(data.configurationData || []);
   const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { envTypes } = state;
+
 
   const handleCongigClick = (config) => {
     ctxDispatch({ type: 'FATCH_CONFIGDATA', payload: config });
@@ -59,8 +61,9 @@ export default function SelectConfigration({ showConfig, setShowConfig }) {
                     <tr
                       key={config.id}
                       className="textSize confitTable"
-                      onClick={() => handleCongigClick(config)}
+                      onClick={() => handleCongigClick(config, config.category)}
                     >
+
                       <td>{config.category}</td>
                       <td>{config.model}</td>
                       <td>{config.description}</td>

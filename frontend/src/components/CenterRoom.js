@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Image, Row } from 'react-bootstrap';
 import { Store } from '../Store';
 
 export default function CenterRoom() {
   const { state } = useContext(Store);
   const { countColumns, countRows, config, imgUpload, roomThem } = state;
+
   return (
     <>
       <Row className="mt-5 mx-2">
@@ -52,12 +53,15 @@ export default function CenterRoom() {
                   </div>
                 </div>
               </div>
+              <Image className='centerThemeImg position-absolute' src={roomThem.themImg ? roomThem.themImg : ''} alt="roomthem" />
               <div
                 className="position-relative bg-center  d-inline-block border border-black ImgCenter"
                 style={{
-                  backgroundImage: `url(${roomThem || imgUpload})`,
+
+                  backgroundImage: `url(${roomThem.bgImg || imgUpload})`,
                 }}
               ></div>
+
             </Col>
             <Col className="rightWall" md={2}></Col>
           </Row>

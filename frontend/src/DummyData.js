@@ -14,25 +14,36 @@ const data = {
       id: 1,
       roomTheme: 'Standard Room',
       image: '/assets/RoomThemes/1.png',
+      themImg: '/assets/Center/',
+      bgImg: '/assets/background/'
+
     },
     {
       id: 2,
       image: '/assets/RoomThemes/2.png',
+      themImg: '/assets/Center/tvstudio.png',
+      bgImg: '/assets/background/tvsudio.png',
       roomTheme: 'TV Studio',
     },
     {
       id: 3,
       image: '/assets/RoomThemes/3.png',
+      themImg: '/assets/Center/meeting-room.png',
+      bgImg: '/assets/background/meeting-bg.png',
       roomTheme: 'Meeting Room',
     },
     {
       id: 4,
       image: '/assets/RoomThemes/4.png',
+      themImg: '/assets/Center/control-room.png',
+      bgImg: '/assets/background/control-room-bg.png',
       roomTheme: 'Control Room',
     },
     {
       id: 5,
       image: '/assets/RoomThemes/5.png',
+      themImg: '/assets/Center/lobby.png',
+      bgImg: '/assets/background/lobby-bg.png',
       roomTheme: 'Lobby',
     },
   ],

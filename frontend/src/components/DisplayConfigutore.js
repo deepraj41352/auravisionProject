@@ -13,10 +13,13 @@ export default function DisplayConfigutore() {
   const [singleConfigModel, setSingleConfigModel] = useState(false);
   const [countColumn, setCountColumn] = useState(countColumns);
   const [countRow, setCountRow] = useState(countRows);
+
   function handleModelConfigration() {
     setConfigModelVisible(true);
   }
+
   const handleViewSingleConfig = () => setSingleConfigModel(true);
+
   function handleChange(e) {
     ctxDispatch({
       type: 'IMGUPLOAD',
@@ -76,10 +79,10 @@ export default function DisplayConfigutore() {
 
               <span
                 href="#"
-                className="text-success viweDetails"
-                onClick={handleViewSingleConfig}
+                className={`text-success displayConModel`}
+                onClick={config.model ? handleViewSingleConfig : undefined}
               >
-                VIEW DETAILS{' '}
+                VIEW DETAILS
               </span>
               <ViewSingleConfig
                 show={singleConfigModel}

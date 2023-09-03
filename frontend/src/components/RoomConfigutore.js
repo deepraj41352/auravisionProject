@@ -5,11 +5,13 @@ import SelectRoomThem from './SelectRoomThem';
 import { Store } from '../Store';
 
 export default function RoomConfigutore() {
-  const { state } = useContext(Store);
+  const { state, dispatch: ctxDispatch } = useContext(Store);
   const { envTypes, roomType } = state;
   const [envTypeModalVisible, setEnvTypeModalVisible] = useState(false);
   const [triggerRerender, setTriggerRerender] = useState(false);
   const [roomThemModelVisible, setRoomThemModelVisible] = useState(false);
+  const [countHeight, setCountHeight] = useState(3);
+  const [countWidth, setCountWidth] = useState(6);
 
   const handleEnvType = () => setEnvTypeModalVisible(true);
 
@@ -17,7 +19,28 @@ export default function RoomConfigutore() {
 
   useEffect(() => {
     setTriggerRerender(!triggerRerender);
-  }, [envTypes, roomType, triggerRerender]);
+  }, [envTypes, roomType]);
+
+  const decrementHeight = () => {
+    if (countHeight >= 2) {
+      setCountHeight(countHeight - 1);
+    }
+  };
+  const decrementWidth = () => {
+    if (countWidth >= 2) {
+      setCountWidth(countWidth - 1);
+    }
+  };
+  useEffect(() => {
+    ctxDispatch({
+      type: 'COUNTROW',
+      payload: countHeight,
+    });
+    ctxDispatch({
+      type: 'COUNTCOLUMN',
+      payload: countWidth,
+    });
+  }, [ctxDispatch, countHeight, countWidth]);
 
   return (
     <>
@@ -40,6 +63,7 @@ export default function RoomConfigutore() {
               <SelectYourEvt
                 show={envTypeModalVisible}
                 setShow={setEnvTypeModalVisible}
+
               />
             </Col>
           </Row>
@@ -75,13 +99,13 @@ export default function RoomConfigutore() {
                   </Row>
                   <Row>
                     <Col md={3} className="d-flex">
-                      <Button className="btns btnLeft">
+                      <Button className="btns btnLeft" onClick={decrementWidth}>
                         <i class="fa fa-minus" aria-hidden="true"></i>
                       </Button>
                       <span className="textSize bg-light text-dark text-lights px-2">
-                        2
+                        {countWidth}
                       </span>
-                      <Button className="btns btnRight">
+                      <Button className="btns btnRight" onClick={() => setCountWidth(countWidth + 1)}>
                         <i class="fa fa-plus" aria-hidden="true"></i>
                       </Button>
                     </Col>
@@ -93,13 +117,13 @@ export default function RoomConfigutore() {
                   </Row>
                   <Row>
                     <Col className="d-flex">
-                      <Button className="btns btnLeft">
+                      <Button className="btns btnLeft" onClick={decrementHeight}>
                         <i class="fa fa-minus" aria-hidden="true"></i>
                       </Button>
                       <span className="textSize bg-light text-dark text-lights px-2">
-                        2
+                        {countHeight}
                       </span>
-                      <Button className="btns btnRight">
+                      <Button className="btns btnRight" onClick={() => setCountHeight(countHeight + 1)}>
                         <i class="fa fa-plus" aria-hidden="true"></i>
                       </Button>
                     </Col>
