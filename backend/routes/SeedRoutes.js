@@ -4,10 +4,17 @@ import data from '../DummyData.js'
 const seedRouter = express.Router();
 
 seedRouter.get('/', async (req, res) => {
-    await Product.deleteMany({});
-    const createdConfigData = await ConfigData.insertMany(data.configurationData);
+    try {
+        console.log('After route definition');
 
-    res.send({ createdConfigData });
+        await ConfigData.deleteMany({});
+        const createdConfigData = await ConfigData.insertMany(data.configurationData);
+        res.send({ createdConfigData });
 
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({ error: 'Internal server error' });
+    }
 });
+
 export default seedRouter;

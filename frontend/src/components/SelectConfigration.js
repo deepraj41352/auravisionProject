@@ -1,13 +1,24 @@
 import { Row, Table, Modal } from 'react-bootstrap';
-import data from '../DummyData';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useReducer, useState } from 'react';
 import { Store } from '../Store';
+import axios from 'axios';
+
+const reducer = (state, action) => {
+  switch (action.payload) {
+    case "FATCH_REQUEST":
+      return { ...state, loading: true };
+    case "FATCH_SUCCESS":
+      return { ...state, configData: action.payload, loading: false };
+    case "FATCH_FAIL":
+      return { ...state, loading: false, error: action.payload }
+  }
+}
 
 export default function SelectConfigration({ showConfig, setShowConfig }) {
-  const [configData, setConfigData] = useState(data.configurationData || []);
+  // const [configData, setConfigData] = useState(data.configurationData || []);
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { envTypes } = state;
-
+  const [{ loading, error, configData }, dispatch] = useReducer(reducer, { loading: false, error: '' })
 
   const handleCongigClick = (config) => {
     ctxDispatch({ type: 'FATCH_CONFIGDATA', payload: config });
@@ -16,7 +27,23 @@ export default function SelectConfigration({ showConfig, setShowConfig }) {
   };
 
   const handleClose = () => setShowConfig(false);
+
+  useEffect(() => {
+    const fatchConfigData = async () => {
+      try {
+        dispatch({ type: "FATCH_REQUEST" });
+        const { data } = await axios.get('/api/seed/');
+        console.log(data)
+        dispatch({ type: "FATCH_SUCCESS", payload: data });
+
+      } catch (error) {
+        dispatch({ type: "FATCH_FAIL", payload: error });
+      }
+    }
+    return fatchConfigData
+  }, [])
   return (
+
     <>
       <Modal
         show={showConfig}
@@ -57,13 +84,12 @@ export default function SelectConfigration({ showConfig, setShowConfig }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {configData.map((config) => (
+                  {/* {configData.map((config) => (
                     <tr
-                      key={config.id}
+                      key={config._id}
                       className="textSize confitTable"
                       onClick={() => handleCongigClick(config, config.category)}
                     >
-
                       <td>{config.category}</td>
                       <td>{config.model}</td>
                       <td>{config.description}</td>
@@ -71,7 +97,7 @@ export default function SelectConfigration({ showConfig, setShowConfig }) {
                       <td>{config.ledType}</td>
                       <td>{config.brightness}</td>
                     </tr>
-                  ))}
+                  ))} */}
                 </tbody>
               </Table>
             </div>
